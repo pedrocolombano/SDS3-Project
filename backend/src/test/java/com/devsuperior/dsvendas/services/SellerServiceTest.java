@@ -16,7 +16,7 @@ import com.devsuperior.dsvendas.repositories.SellerRepository;
 public class SellerServiceTest {
 
 	private SellerService service;
-	
+
 	@Mock
 	private SellerRepository repository;
 	
@@ -25,17 +25,17 @@ public class SellerServiceTest {
 		MockitoAnnotations.openMocks(this);
 		this.service = new SellerService(repository);
 	}
-	
-	
+
+
 	@Test
-	public void shouldFindAllSellers() {
-		Mockito.when(repository.findAll()).thenReturn(createSellers());
+	public void shouldFindAllSellersDto() {
+		Mockito.when(this.repository.findAll()).thenReturn(createSellers());
 		List<SellerDto> sellers = this.service.findAll();
-		
+
 		Mockito.verify(this.repository).findAll();
 		Assertions.assertFalse(sellers.isEmpty());
 	}
-	
+
 	public List<Seller> createSellers() {
 		Seller s1 = new Seller("Paulo");
 		Seller s2 = new Seller("Henrique");

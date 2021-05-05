@@ -16,16 +16,16 @@ import com.devsuperior.dsvendas.services.SellerService;
 public class SellerController {
 
 	private SellerService sellerService;
-	
+
 	@Autowired
 	public SellerController(final SellerService sellerService) {
 		this.sellerService = sellerService;
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<List<SellerDto>> findAll() {
 		List<SellerDto> sellers = this.sellerService.findAll();
 		return ResponseEntity.ok().body(sellers);
 	}
-	
+
 }

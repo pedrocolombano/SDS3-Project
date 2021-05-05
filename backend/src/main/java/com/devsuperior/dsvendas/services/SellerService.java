@@ -1,6 +1,5 @@
 package com.devsuperior.dsvendas.services;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,8 +22,7 @@ public class SellerService {
 
 	public List<SellerDto> findAll() {
 		List<Seller> sellers = this.sellerRepository.findAll();
-		return Collections
-				.unmodifiableList(sellers.stream().map(seller -> new SellerDto(seller)).collect(Collectors.toList()));
+		return sellers.stream().map(seller -> new SellerDto(seller)).collect(Collectors.toList());
 	}
 
 }
